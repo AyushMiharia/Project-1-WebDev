@@ -1,0 +1,17 @@
+{
+  "name": "ayush-miharia-portfolio",
+  "version": "1.0.0",
+  "description": "Personal portfolio website for Ayush Miharia",
+  "main": "index.html",
+  "type": "module",
+  "scripts": {
+    "start": "echo 'Open index.html in your browser'"
+  },
+  "keywords": [
+    "portfolio",
+    "personal-website",
+    "ayush-miharia"
+  ],
+  "author": "Ayush Miharia",
+  "license": "MIT"
+}
