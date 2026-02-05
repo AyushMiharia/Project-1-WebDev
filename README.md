@@ -63,7 +63,7 @@ personal/
 
 ## Design Document
 
-View the design document for this project: [Design_document.pdf](Design_document.pdf)
+View the design document for this project: [Personal_Home_page.pdf](Personal_Home_page.pdf)
 
 ## How to Install / Use
 
@@ -106,7 +106,6 @@ The website automatically detects the current time and applies a matching theme:
 Graduate Student @ Northeastern University | Software Developer & Data Analyst
 
 - 🌐 Homepage: [ayushmiharia.github.io/personal](https://ayushmiharia.github.io/personal)
-- 💼 LinkedIn: [linkedin.com/in/ayush-miharia-899235213](https://linkedin.com/in/ayush-miharia-899235213)
 - 🐙 GitHub: [github.com/ayushmiharia](https://github.com/ayushmiharia)
 - 📧 Email: [miharia.ay@northeastern.edu](mailto:miharia.ay@northeastern.edu)
 
