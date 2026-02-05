@@ -4,7 +4,7 @@ A modern, responsive personal portfolio website showcasing my journey as a gradu
 
 ## Live Demo
 
-🔗 [View Live Demo](https://ayushmiharia.github.io/personal)
+🔗 [View Live Demo](https://ayushmiharia.github.io/Project-1-WebDev/)
 
 ![Portfolio Screenshot](images/thumbnail.jpg)
 
