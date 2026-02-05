@@ -112,7 +112,7 @@ Graduate Student @ Northeastern University | Software Developer & Data Analyst
 
 This project was created as part of **CS 5610 - Web Development** at Northeastern University.
 
-Course Link: [CS 5610 Web Development](https://johnguerra.co/classes/webDevelopment_fall_2024/)
+Course Link: [CS 5610 Web Development](https://johnguerra.co/classes/webDevelopment_online_fall_2025/)
 
 ## Video Demonstration
 
