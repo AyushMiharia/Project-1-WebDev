@@ -6,7 +6,7 @@ A modern, responsive personal portfolio website showcasing my journey as a gradu
 
 🔗 [View Live Demo](https://ayushmiharia.github.io/personal)
 
-![Portfolio Screenshot](images/thumbnail.png)
+![Portfolio Screenshot](images/thumbnail.jpg)
 
 ## Project Objective
 
@@ -31,7 +31,7 @@ This project serves as my personal homepage and portfolio to:
 
 | Home Page | About Page |
 |-----------|------------|
-| ![Home](images/thumbnail.png) | ![About](images/about.png) |
+| ![Home](images/thumbnail.jpg) | ![About](images/About.jpg) |
 
 ## Tech Stack
 
