@@ -34,8 +34,6 @@ function updateTheme() {
   // Apply the theme to body
   bodyElement.className = themeClass;
   themeBadge.textContent = `${themeIcon} ${themeLabel}`;
-
-  // Log theme change for debugging
   console.log(`Theme updated to: ${themeLabel} at ${currentHour}:00`);
 }
 
@@ -43,14 +41,12 @@ function updateTheme() {
 function initializeScrollAnimation() {
   const flipCards = document.querySelectorAll(".flip-card");
 
-  // Create intersection observer for scroll-triggered animations
+  // Intersection observer for scroll animations
   const cardObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          // Add visible class when card enters viewport
           entry.target.classList.add("visible");
-          // Stop observing once animated
           cardObserver.unobserve(entry.target);
         }
       });
@@ -63,23 +59,19 @@ function initializeScrollAnimation() {
 
   // Observe each flip card
   flipCards.forEach((card, index) => {
-    // Add staggered delay for cascade effect
     card.style.transitionDelay = `${index * 0.1}s`;
     cardObserver.observe(card);
   });
 }
 
-// Add interactive card click functionality
+// card click functionality
 function enhanceCardInteractivity() {
   const allCards = document.querySelectorAll(".flip-card");
 
   allCards.forEach((card) => {
-    // Add click to flip on mobile devices
     card.addEventListener("click", function () {
       const innerCard = this.querySelector(".flip-card-inner");
       const currentTransform = window.getComputedStyle(innerCard).transform;
-
-      // Toggle flip on click for touch devices
       if (
         currentTransform === "none" ||
         currentTransform.includes("matrix(1, 0, 0, 1")
