@@ -105,8 +105,7 @@ The website automatically detects the current time and applies a matching theme:
 **Ayush Miharia**  
 Graduate Student @ Northeastern University | Software Developer & Data Analyst
 
-- 🌐 Homepage: [ayushmiharia.github.io/personal](https://ayushmiharia.github.io/personal)
-- 🐙 GitHub: [github.com/ayushmiharia](https://github.com/ayushmiharia)
+- 🌐 Homepage: [ayushmiharia.github.io/personal](https://github.com/AyushMiharia/Project-1-WebDev/tree/main)
 - 📧 Email: [miharia.ay@northeastern.edu](mailto:miharia.ay@northeastern.edu)
 
 ## 📚 Class Reference
