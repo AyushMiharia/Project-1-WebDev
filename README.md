@@ -1,140 +1,41 @@
-# Ayush Miharia - Personal Homepage
+# Ayush Miharia — Portfolio
 
-A modern, responsive personal portfolio website showcasing my journey as a graduate student and software developer. Built with vanilla HTML, CSS, and JavaScript featuring a time-based dynamic theme system and interactive flip cards.
+A single-page portfolio built with HTML, CSS, and vanilla JavaScript. The terminal/editor design follows [Salwa Shuman's portfolio](https://salwashuman.com/), adapted for Ayush's projects and experience.
 
-## Live Demo
+## Sections
 
-🔗 [View Live Demo](https://ayushmiharia.github.io/Project-1-WebDev/)
+- Introduction, initials avatar, GitHub, and LinkedIn
+- Five project cards based on the current résumé
+- Brillio experience, education, and technical skills
+- Contact panel that opens a prepared message in the visitor's email application
 
-![Portfolio Screenshot](images/thumbnail.jpg)
+The project thumbnails are original illustrative SVGs, rather than application screenshots. Replace them with screenshots when available. Project demo/repository links can be added once their URLs are confirmed.
 
-## Project Objective
+## Preview locally
 
-This project serves as my personal homepage and portfolio to:
+From the repository root:
 
-- Showcase my work experience, projects, and technical skills
-- Provide a central hub for professional connections (GitHub, LinkedIn, Email)
-- Express my personality through design choices and interactive elements
-- Demonstrate frontend development capabilities with pure HTML/CSS/JS
-
-## Features
-
-- **Time-Based Theme System** - Automatically changes colors based on time of day (Morning/Afternoon/Evening/Night)
-- **Interactive Flip Cards** - Hover to reveal detailed information with smooth 3D CSS transforms
-- **Scroll Animations** - Fade-in effects using Intersection Observer API
-- **Glassmorphism Design** - Modern backdrop blur effects and gradient backgrounds
-- **Multiple Pages** - Dedicated pages for About, Skills, Projects, and Interests
-- **Fully Responsive** - Works on desktop, tablet, and mobile devices
-- **ES6 Modules** - Clean, organized JavaScript code structure
-
-## Screenshots
-
-| Home Page | About Page |
-|-----------|------------|
-| ![Home](images/thumbnail.jpg) | ![About](images/About.jpg) |
-
-## Tech Stack
-
-- **HTML5** - Semantic markup structure
-- **CSS3** - Custom styling with CSS Grid, Flexbox, animations, 3D transforms
-- **JavaScript (ES6+)** - DOM manipulation, Intersection Observer API, ES6 modules
-- **No external libraries** - Pure vanilla implementation (no jQuery, no frameworks)
-
-## Project Structure
-```
-personal/
-├── homepage.html               # Main homepage
-├── package.json                # Project configuration
-├── .eslintrc.json              # ESLint configuration
-├── README.md                   # Project documentation
-├── Design_document.pdf         # Design documentation
-├── images/
-│   └── thumbnail.png           # Screenshot/thumbnail
-├── css/
-│   └── styles.css              # All styling
-├── js/
-│   └── main.js                 # ES6 module with all functionality
-└── pages/
-    ├── about.html              # About me page
-    ├── skills.html             # Technical skills page
-    ├── projects.html           # Projects showcase
-    └── interests.html          # Personal interests page
+```sh
+python3 -m http.server 8000
 ```
 
-## Design Document
+Open `http://localhost:8000`. No build step or npm dependencies are required.
 
-View the design document for this project: [Personal_Home_page.pdf](Personal_Home_page.pdf)
+## Edit content
 
-## How to Install / Use
+- `index.html`: text, navigation, contact email, and links
+- `css/styles.css`: theme, glass panels, responsive layouts, and reduced-motion styles
+- `js/main.js`: typing, line numbers, active tabs, hover highlights, and email composition
+- `assets/`: initials avatar and project illustrations
 
-### Option 1: Clone and Open
-```bash
-# Clone the repository
-git clone https://github.com/ayushmiharia/personal.git
+Legacy URLs in `pages/` redirect to the corresponding sections. Relative asset paths support GitHub Pages hosting under `/Project-1-WebDev/`.
 
-# Navigate to the project directory
-cd personal
+## Contact behavior
 
-# Open in browser
-open homepage.html
-# or simply double-click homepage.html
-```
+The contact form validates its fields and opens a `mailto:` draft. The visitor sends the message in their email app. It does not automatically send messages or report delivery. A direct email link is also available.
 
-### Option 2: Live Server (Recommended for Development)
-```bash
-# If you have VS Code with Live Server extension
-# Right-click homepage.html -> Open with Live Server
+## Publishing
 
-# Or using Python
-python -m http.server 8000
-```
+Merge the redesign into the repository's configured GitHub Pages source branch after reviewing it. The existing public site URL is https://ayushmiharia.github.io/Project-1-WebDev/.
 
-## Creative Feature: Time-Based Theme System
-
-The website automatically detects the current time and applies a matching theme:
-
-| Time | Theme | Colors |
-|------|-------|--------|
-| 5 AM - 12 PM | 🌅 Morning | Purple gradient |
-| 12 PM - 5 PM | ☀️ Afternoon | Pink gradient |
-| 5 PM - 8 PM | 🌆 Evening | Blue gradient |
-| 8 PM - 5 AM | 🌙 Night | Dark gradient |
-
-## Author
-
-**Ayush Miharia**  
-Graduate Student @ Northeastern University | Software Developer & Data Analyst
-
-- 🌐 Homepage: [ayushmiharia.github.io/personal](https://github.com/AyushMiharia/Project-1-WebDev/tree/main)
-- 📧 Email: [miharia.ay@northeastern.edu](mailto:miharia.ay@northeastern.edu)
-
-## 📚 Class Reference
-
-This project was created as part of **CS 5610 - Web Development** at Northeastern University.
-
-Course Link: [CS 5610 Web Development](https://johnguerra.co/classes/webDevelopment_online_fall_2025/)
-
-## Video Demonstration
-
-[Watch the demo video]
-
-## GenAI Tools Usage
-
-This project utilized AI assistance in the following ways:
-
-| Tool | Version | Usage |
-|------|---------|-------|
-| Gemini | Gemini 3.0 | time- based theme page (about) and code structure suggestions |
-
-**Prompts Used:**
-- "Design a time-based theme system for a portfolio"
-- "Teach me how the time-based theme work" 
-
-**How AI Assisted:**
-- Helped structure the time-based theme JavaScript logic and about.html page
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
-
----
+A personal portrait and downloadable résumé can be added after approval to make those files publicly accessible.
