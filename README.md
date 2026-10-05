@@ -2,6 +2,14 @@
 
 A single-page portfolio built with HTML, CSS, and vanilla JavaScript. The terminal/editor design follows [Salwa Shuman's portfolio](https://salwashuman.com/), adapted for Ayush's projects and experience.
 
+## Portfolio previews
+
+| Homepage | About section |
+| --- | --- |
+| ![Current portfolio homepage](images/thumbnail.jpg) | ![Current About section](images/About.jpg) |
+
+[View the mobile preview](images/portfolio-mobile.jpg)
+
 ## Sections
 
 - Introduction, initials avatar, GitHub, and LinkedIn
@@ -38,4 +46,4 @@ The contact form validates its fields and opens a `mailto:` draft. The visitor s
 
 Merge the redesign into the repository's configured GitHub Pages source branch after reviewing it. The existing public site URL is https://ayushmiharia.github.io/Project-1-WebDev/.
 
-A personal portrait and downloadable résumé can be added after approval to make those files publicly accessible.
+The portfolio uses an initials avatar and does not include a personal portrait or résumé PDF.
