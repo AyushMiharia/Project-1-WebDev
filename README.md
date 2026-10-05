@@ -1,6 +1,6 @@
 # Ayush Miharia — Portfolio
 
-A single-page portfolio built with HTML, CSS, and vanilla JavaScript. The terminal/editor design follows [Salwa Shuman's portfolio](https://salwashuman.com/), adapted for Ayush's projects and experience.
+A single-page portfolio built with HTML, CSS, and vanilla JavaScript. 
 
 ## Portfolio previews
 
