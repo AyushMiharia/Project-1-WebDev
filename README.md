@@ -36,7 +36,7 @@ Open `http://localhost:8000`. No build step or npm dependencies are required.
 - `js/main.js`: typing, line numbers, active tabs, hover highlights, and email composition
 - `assets/`: initials avatar and project illustrations
 
-Legacy URLs in `pages/` redirect to the corresponding sections. Relative asset paths support GitHub Pages hosting under `/Project-1-WebDev/`.
+Legacy URLs in `pages/` redirect to the corresponding sections. Relative asset paths support GitHub Pages hosting under `/myportfolio/`.
 
 ## Contact behavior
 
@@ -44,6 +44,6 @@ The contact form validates its fields and opens a `mailto:` draft. The visitor s
 
 ## Publishing
 
-Merge the redesign into the repository's configured GitHub Pages source branch after reviewing it. The existing public site URL is https://ayushmiharia.github.io/Project-1-WebDev/.
+Merge the redesign into the repository's configured GitHub Pages source branch after reviewing it. The existing public site URL is https://ayushmiharia.github.io/myportfolio/.
 
 The portfolio uses an initials avatar and does not include a personal portrait or résumé PDF.
