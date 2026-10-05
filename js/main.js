@@ -1,141 +1,103 @@
-// Time-based theme system - dynamically changes based on actual time
-function updateTheme() {
-  const currentHour = new Date().getHours();
-  const bodyElement = document.body;
-  const themeBadge = document.getElementById("themeBadge");
-
-  let themeClass, themeIcon, themeLabel;
-
-  // Morning: 5 AM - 11:59 AM
-  if (currentHour >= 5 && currentHour < 12) {
-    themeClass = "morning";
-    themeIcon = "🌅";
-    themeLabel = "Morning";
-  }
-  // Afternoon: 12 PM - 4:59 PM
-  else if (currentHour >= 12 && currentHour < 17) {
-    themeClass = "afternoon";
-    themeIcon = "☀️";
-    themeLabel = "Afternoon";
-  }
-  // Evening: 5 PM - 7:59 PM
-  else if (currentHour >= 17 && currentHour < 20) {
-    themeClass = "evening";
-    themeIcon = "🌆";
-    themeLabel = "Evening";
-  }
-  // Night: 8 PM - 4:59 AM
-  else {
-    themeClass = "night";
-    themeIcon = "🌙";
-    themeLabel = "Night";
-  }
-
-  // Apply the theme to body
-  bodyElement.className = themeClass;
-  themeBadge.textContent = `${themeIcon} ${themeLabel}`;
-  console.log(`Theme updated to: ${themeLabel} at ${currentHour}:00`);
-}
-
-// Animate flip cards as they scroll into view
-function initializeScrollAnimation() {
-  const flipCards = document.querySelectorAll(".flip-card");
-
-  // Intersection observer for scroll animations
-  const cardObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          cardObserver.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.15,
-      rootMargin: "0px 0px -80px 0px",
-    },
-  );
-
-  // Observe each flip card
-  flipCards.forEach((card, index) => {
-    card.style.transitionDelay = `${index * 0.1}s`;
-    cardObserver.observe(card);
-  });
-}
-
-// card click functionality
-function enhanceCardInteractivity() {
-  const allCards = document.querySelectorAll(".flip-card");
-
-  allCards.forEach((card) => {
-    card.addEventListener("click", function () {
-      const innerCard = this.querySelector(".flip-card-inner");
-      const currentTransform = window.getComputedStyle(innerCard).transform;
-      if (
-        currentTransform === "none" ||
-        currentTransform.includes("matrix(1, 0, 0, 1")
-      ) {
-        innerCard.style.transform = "rotateY(180deg)";
-      } else {
-        innerCard.style.transform = "rotateY(0deg)";
-      }
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const typewriter = document.getElementById('typewriter-text');
+if (typewriter && !reducedMotion) {
+    const lines = ['Welcome to my portfolio!', 'Enjoy your stay :D'];
+    typewriter.replaceChildren();
+    const spans = lines.map((line, index) => {
+        if (index) typewriter.append(document.createElement('br'));
+        const span = document.createElement('span');
+        typewriter.append(span);
+        return span;
     });
-  });
+    let lineIndex = 0;
+    let character = 0;
+    function typeNext() {
+        if (lineIndex >= lines.length) return;
+        character += 1;
+        spans[lineIndex].textContent = lines[lineIndex].slice(0, character);
+        if (character >= lines[lineIndex].length) {
+            lineIndex += 1;
+            character = 0;
+        }
+        window.setTimeout(typeNext, character ? 42 : 168);
+    }
+    typeNext();
 }
-
-// Smooth scroll behavior for links
-function initializeSmoothScroll() {
-  const contactLinks = document.querySelectorAll('a[href^="#"]');
-
-  contactLinks.forEach((link) => {
-    link.addEventListener("click", function (event) {
-      const targetId = this.getAttribute("href");
-      if (targetId !== "#") {
+const gutter = document.getElementById('line-gutter');
+const content = document.querySelector('.terminal-content');
+let previousCount = 0;
+function renderLineNumbers() {
+    if (!gutter || !content) return;
+    const contact = document.getElementById('contact');
+    const height = contact ? contact.offsetTop + contact.offsetHeight : content.scrollHeight;
+    const count = Math.max(1, Math.ceil(height / 28));
+    if (count === previousCount) return;
+    previousCount = count;
+    gutter.replaceChildren(...Array.from({ length: count }, (_, index) => {
+        const line = document.createElement('span');
+        line.className = 'line-number';
+        line.textContent = String(index + 1);
+        return line;
+    }));
+}
+renderLineNumbers();
+if (content && 'ResizeObserver' in window) new ResizeObserver(renderLineNumbers).observe(content);
+window.addEventListener('resize', renderLineNumbers);
+const tabs = [...document.querySelectorAll('.terminal-tab')];
+const sections = tabs.map(tab => document.querySelector(tab.getAttribute('href'))).filter(Boolean);
+const tabBar = document.querySelector('.terminal-tab-bar');
+function setActive(id) {
+    tabs.forEach(tab => {
+        const active = tab.getAttribute('href') === `#${id}`;
+        tab.classList.toggle('active', active);
+        if (active) tab.setAttribute('aria-current', 'location');
+        else tab.removeAttribute('aria-current');
+    });
+}
+function updateActiveSection() {
+    const offset = (tabBar ? tabBar.getBoundingClientRect().bottom : 0) + 120;
+    let current = sections[0];
+    sections.forEach(section => {
+        if (section.getBoundingClientRect().top <= offset) current = section;
+    });
+    if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4) current = sections.at(-1);
+    if (current) setActive(current.id);
+}
+let scrollPending = false;
+window.addEventListener('scroll', () => {
+    if (scrollPending) return;
+    scrollPending = true;
+    window.requestAnimationFrame(() => {
+        updateActiveSection();
+        scrollPending = false;
+    });
+}, { passive: true });
+updateActiveSection();
+if (!reducedMotion && window.matchMedia('(pointer: fine)').matches) {
+    document.querySelectorAll('.about-box, .project-card, .contact-box').forEach(panel => {
+        panel.addEventListener('pointermove', event => {
+            const rect = panel.getBoundingClientRect();
+            panel.style.setProperty('--mx', `${((event.clientX - rect.left) / rect.width) * 100}%`);
+            panel.style.setProperty('--my', `${((event.clientY - rect.top) / rect.height) * 100}%`);
+        });
+    });
+}
+const form = document.getElementById('contact-form');
+if (form) {
+    form.addEventListener('submit', event => {
         event.preventDefault();
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          targetElement.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-          });
+        if (!form.reportValidity()) return;
+        const data = new FormData(form);
+        const name = String(data.get('name')).trim();
+        const email = String(data.get('email')).trim();
+        const message = String(data.get('message')).trim();
+        if (!name || !message) {
+            document.getElementById('form-status').textContent = 'Please add your name and a message.';
+            return;
         }
-      }
+        const subject = encodeURIComponent(`Portfolio message from ${name}`);
+        const body = encodeURIComponent(`${message}\n\nFrom: ${name}\nReply to: ${email}`);
+        window.location.href = `mailto:miharia.ay@northeastern.edu?subject=${subject}&body=${body}`;
+        document.getElementById('form-status').textContent = 'Your email app will open with this message. Send it there, or use the email link below.';
     });
-  });
 }
-
-// Main initialization function
-function initializePortfolio() {
-  // Set initial theme
-  updateTheme();
-
-  // Initialize scroll animations
-  initializeScrollAnimation();
-
-  // Enhance card interactivity
-  enhanceCardInteractivity();
-
-  // Initialize smooth scrolling
-  initializeSmoothScroll();
-
-  // Update theme every minute to reflect time changes
-  setInterval(updateTheme, 60000);
-
-  console.log("Portfolio initialized successfully!");
-}
-
-// Execute when DOM is fully loaded
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", initializePortfolio);
-} else {
-  initializePortfolio();
-}
-
-// Export functions for potential reuse
-export {
-  updateTheme,
-  initializeScrollAnimation,
-  enhanceCardInteractivity,
-  initializeSmoothScroll,
-};
